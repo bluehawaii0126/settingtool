@@ -1,5 +1,13 @@
 .table1 {
-  width: 50%;
-  table-layout: fixed;
-  word-wrap: break-word;
+	width: 50%;
+	table-layout: fixed;
+	word-wrap: break-word;
+}
+
+.title01 {
+	font-size: 24pt;
+}
+
+.td_vertical_align_middle.td_vertical_align_middle {
+ 	vertical-align: middle;
 }
