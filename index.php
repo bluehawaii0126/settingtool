@@ -18,7 +18,9 @@
           if (!empty($_GET['error']) && $_GET['error'] == 1) { ?>
             <font color="red">idまたはpasswordに誤りがあります</font>
         <?php } else if (!empty($_GET['error']) && $_GET['error'] == 2) { ?>
-            <font color="red">ロックされました。<br/>しばらくたってから再度お試しください。</font>
+            <font color="red">3回失敗したためロックされました。<br/>しばらくたってから再度お試しください。</font>
+        <?php } else if (!empty($_GET['error']) && $_GET['error'] == 3) { ?>
+            <font color="red">ロックされています。<br/>しばらくたってから再度お試しください。</font>
         <?php } ?>
         <label for="inputUserId" class="sr-only">id</label>
         <input type="userid" id="userid" name="userid" class="form-control" placeholder="id" required autofocus>

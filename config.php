@@ -1,5 +1,5 @@
 <?php
-
-$SITE_URL = 'http://192.168.33.10/armadmin';
+// ログインロック時間（秒）
+$LOGIN_LOCKTIME = 3600;
 
 ?>
