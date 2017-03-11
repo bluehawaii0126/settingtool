@@ -66,8 +66,15 @@ $out['data_arm_server'] = $DATA_ARM_SERVER;
 $out['arm_router_no'] = $ARM_ROUTER_NO;
 $out['pic_sensor_no'] = $PIC_SENSOR_NO;
 
+$out['schedules'] = ArmUtil::getSchedules();
+
 $defaultSchedule = ArmUtil::getDefaultSchedule();
-$out['schedules'] = $defaultSchedule;
+$out['select_months'] = $defaultSchedule['select_months'];
+$out['select_days'] = $defaultSchedule['select_days'];
+$out['select_weekdays'] = $defaultSchedule['select_weekdays'];
+$out['select_hours'] = $defaultSchedule['select_hours'];
+$out['select_minutes'] = $defaultSchedule['select_minutes'];
+$out['select_seconds'] = $defaultSchedule['select_seconds'];
 
 $Skinny->SkinnyDisplay('views/setting.html', $out);
 

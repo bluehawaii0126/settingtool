@@ -30,20 +30,34 @@
 		<tr>
 			<td class="col-md-3">標準ARMサーバー</td>
 			<td class="col-md-9">
-				<div class="form-group col-xs-3"><input type="text" name="default-arm-server" class="form-control input-sm" value="<% echo(default_arm_server) %>"></div>
+				<div class="form-group col-xs-3">
+					<input type="text" name="default_arm_server" class="form-control input-sm" value="<% echo(default_arm_server) %>">
+				</div>
 			</td>
 		</tr>
 		<tr>
 			<td>データARMサーバー</td>
-			<td><div class="form-group col-xs-3"><input type="text" name="default-arm-server" class="form-control input-sm" value="<% echo(data_arm_server) %>"></div></td>
+			<td>
+				<div class="form-group col-xs-3">
+					<input type="text" name="data_arm_server" class="form-control input-sm" value="<% echo(data_arm_server) %>">
+				</div>
+			</td>
 		</tr>
 		<tr>
 			<td>ARMルーター番号</td>
-			<td><span class="form-group col-xs-7"><input type="text" name="default-arm-server" class="form-control input-sm" value="<% echo(arm_router_no) %>"></span></td>
+			<td>
+				<div class="form-group col-xs-7">
+					<input type="text" name="arm_router_no" class="form-control input-sm" value="<% echo(arm_router_no) %>">
+				</div>
+			</td>
 		</tr>
 		<tr>
 			<td>画像認識センサー番号</td>
-			<td><div class="form-group col-xs-7"><input type="text" name="default-arm-server" class="form-control input-sm" value="<% echo(pic_sensor_no) %>"></div></td>
+			<td>
+				<div class="form-group col-xs-7">
+					<input type="text" name="pic_sensor_no" class="form-control input-sm" value="<% echo(pic_sensor_no) %>">
+				</div>
+			</td>
 		</tr>
 		</tbody>
 	</table>
@@ -53,276 +67,68 @@
 			<tr class="info"><th colspan="7">スケジュール設定</th></tr>
 		</thead>
 		<tbody>
-		<tr>
-			<td class="col-md-3">センサー死活監視インターバル</td>
-			<td class="col-md-1">
-				<select>
-				    <option>a</option>
-				    <option>b</option>
-				    <option>c</option>
-				</select>
-			</td>
-			<td class="col-md-1">
-				<select class="selectpicker">
-				    <option>Mustard</option>
-				    <option>Ketchup</option>
-				    <option>Relish</option>
-				</select>
-			</td>
-			<td class="col-md-1">
-				<select class="selectpicker">
-				    <option>Mustard</option>
-				    <option>Ketchup</option>
-				    <option>Relish</option>
-				</select>
-			</td>
-			<td class="col-md-1">
-				<select class="selectpicker">
-				    <option>Mustard</option>
-				    <option>Ketchup</option>
-				    <option>Relish</option>
-				</select>
-			</td>
-			<td class="col-md-1">
-				<select class="selectpicker">
-				    <option>Mustard</option>
-				    <option>Ketchup</option>
-				    <option>Relish</option>
-				</select>
-			</td>
-			<td class="col-md-1">
-				<select class="selectpicker">
-				    <option>Mustard</option>
-				    <option>Ketchup</option>
-				    <option>Relish</option>
-				</select>
-			</td>
-		</tr>
-		<tr>
-			<td>ドアセンサー死活監視インターバル</td>
-			<td>
-				<select class="selectpicker">
-				    <option>Mustard</option>
-				    <option>Ketchup</option>
-				    <option>Relish</option>
-				</select>
-			</td>
-			<td>
-				<select class="selectpicker">
-				    <option>Mustard</option>
-				    <option>Ketchup</option>
-				    <option>Relish</option>
-				</select>
-			</td>
-			<td>
-				<select class="selectpicker">
-				    <option>Mustard</option>
-				    <option>Ketchup</option>
-				    <option>Relish</option>
-				</select>
-			</td>
-			<td>
-				<select class="selectpicker">
-				    <option>Mustard</option>
-				    <option>Ketchup</option>
-				    <option>Relish</option>
-				</select>
-			</td>
-			<td>
-				<select class="selectpicker">
-				    <option>Mustard</option>
-				    <option>Ketchup</option>
-				    <option>Relish</option>
-				</select>
-			</td>
-			<td>
-				<select class="selectpicker">
-				    <option>Mustard</option>
-				    <option>Ketchup</option>
-				    <option>Relish</option>
-				</select>
-			</td>
-		</tr>
-		<tr>
-			<td>死活監視（ARMサーバー間）</td>
-			<td>
-				<select class="selectpicker">
-				    <option>Mustard</option>
-				    <option>Ketchup</option>
-				    <option>Relish</option>
-				</select>
-			</td>
-			<td>
-				<select class="selectpicker">
-				    <option>Mustard</option>
-				    <option>Ketchup</option>
-				    <option>Relish</option>
-				</select>
-			</td>
-			<td>
-				<select class="selectpicker">
-				    <option>Mustard</option>
-				    <option>Ketchup</option>
-				    <option>Relish</option>
-				</select>
-			</td>
-			<td>
-				<select class="selectpicker">
-				    <option>Mustard</option>
-				    <option>Ketchup</option>
-				    <option>Relish</option>
-				</select>
-			</td>
-			<td>
-				<select class="selectpicker">
-				    <option>Mustard</option>
-				    <option>Ketchup</option>
-				    <option>Relish</option>
-				</select>
-			</td>
-			<td>
-				<select class="selectpicker">
-				    <option>Mustard</option>
-				    <option>Ketchup</option>
-				    <option>Relish</option>
-				</select>
-			</td>
-		</tr>
-		<tr>
-			<td>設定変更問合せ</td>
-			<td>
-				<select class="selectpicker">
-				    <option>Mustard</option>
-				    <option>Ketchup</option>
-				    <option>Relish</option>
-				</select>
-			</td>
-			<td>
-				<select class="selectpicker">
-				    <option>Mustard</option>
-				    <option>Ketchup</option>
-				    <option>Relish</option>
-				</select>
-			</td>
-			<td>
-				<select class="selectpicker">
-				    <option>Mustard</option>
-				    <option>Ketchup</option>
-				    <option>Relish</option>
-				</select>
-			</td>
-			<td>
-				<select class="selectpicker">
-				    <option>Mustard</option>
-				    <option>Ketchup</option>
-				    <option>Relish</option>
-				</select>
-			</td>
-			<td>
-				<select class="selectpicker">
-				    <option>Mustard</option>
-				    <option>Ketchup</option>
-				    <option>Relish</option>
-				</select>
-			</td>
-			<td>
-				<select class="selectpicker">
-				    <option>Mustard</option>
-				    <option>Ketchup</option>
-				    <option>Relish</option>
-				</select>
-			</td>
-		</tr>
-		<tr>
-			<td>画像認識センサー再起動</td>
-			<td>
-				<select class="selectpicker">
-				    <option>Mustard</option>
-				    <option>Ketchup</option>
-				    <option>Relish</option>
-				</select>
-			</td>
-			<td>
-				<select class="selectpicker">
-				    <option>Mustard</option>
-				    <option>Ketchup</option>
-				    <option>Relish</option>
-				</select>
-			</td>
-			<td>
-				<select class="selectpicker">
-				    <option>Mustard</option>
-				    <option>Ketchup</option>
-				    <option>Relish</option>
-				</select>
-			</td>
-			<td>
-				<select class="selectpicker">
-				    <option>Mustard</option>
-				    <option>Ketchup</option>
-				    <option>Relish</option>
-				</select>
-			</td>
-			<td>
-				<select class="selectpicker">
-				    <option>Mustard</option>
-				    <option>Ketchup</option>
-				    <option>Relish</option>
-				</select>
-			</td>
-			<td>
-				<select class="selectpicker">
-				    <option>Mustard</option>
-				    <option>Ketchup</option>
-				    <option>Relish</option>
-				</select>
-			</td>
-		</tr>
-		<tr>
-			<td>タイトルなし？？</td>
-			<td>
-				<select class="selectpicker">
-				    <option>Mustard</option>
-				    <option>Ketchup</option>
-				    <option>Relish</option>
-				</select>
-			</td>
-			<td>
-				<select class="selectpicker">
-				    <option>Mustard</option>
-				    <option>Ketchup</option>
-				    <option>Relish</option>
-				</select>
-			</td>
-			<td>
-				<select class="selectpicker">
-				    <option>Mustard</option>
-				    <option>Ketchup</option>
-				    <option>Relish</option>
-				</select>
-			</td>
-			<td>
-				<select class="selectpicker">
-				    <option>Mustard</option>
-				    <option>Ketchup</option>
-				    <option>Relish</option>
-				</select>
-			</td>
-			<td>
-				<select class="selectpicker">
-				    <option>Mustard</option>
-				    <option>Ketchup</option>
-				    <option>Relish</option>
-				</select>
-			</td>
-			<td>
-				<select class="selectpicker">
-				    <option>Mustard</option>
-				    <option>Ketchup</option>
-				    <option>Relish</option>
-				</select>
-			</td>
-		</tr>
+		<% def(schedules) %>
+			<% each(schedules) %>
+				<tr>
+					<td class="col-md-3"><% echo(schedules/value) %></td>
+					<td class="col-md-1">
+						<select name="sensor_month">
+							<% def(select_months) %>
+								<% each(select_months) %>
+								    <option value="<% echo(select_months/key) %>"><% echo(select_months/value) %></option>
+								<% /each %>
+							<% /def %>
+						</select>
+					</td>
+					<td class="col-md-1">
+						<select class="selectpicker">
+							<% def(select_days) %>
+								<% each(select_days) %>
+								    <option value="<% echo(select_days/key) %>"><% echo(select_days/value) %></option>
+								<% /each %>
+							<% /def %>
+						</select>
+					</td>
+					<td class="col-md-1">
+						<select class="selectpicker">
+							<% def(select_weekdays) %>
+								<% each(select_weekdays) %>
+								    <option value="<% echo(select_weekdays/key) %>"><% echo(select_weekdays/value) %></option>
+								<% /each %>
+							<% /def %>
+						</select>
+					</td>
+					<td class="col-md-1">
+						<select class="selectpicker">
+							<% def(select_hours) %>
+								<% each(select_hours) %>
+								    <option value="<% echo(select_hours/key) %>"><% echo(select_hours/value) %></option>
+								<% /each %>
+							<% /def %>
+						</select>
+					</td>
+					<td class="col-md-1">
+						<select class="selectpicker">
+							<% def(select_minutes) %>
+								<% each(select_minutes) %>
+								    <option value="<% echo(select_minutes/key) %>"><% echo(select_minutes/value) %></option>
+								<% /each %>
+							<% /def %>
+						</select>
+					</td>
+					<td class="col-md-1">
+						<select class="selectpicker">
+							<% def(select_seconds) %>
+								<% each(select_seconds) %>
+								    <option value="<% echo(select_seconds/key) %>"><% echo(select_seconds/value) %></option>
+								<% /each %>
+							<% /def %>
+						</select>
+					</td>
+				</tr>
+			<% /each %>
+		<% /def %>
+
 		</tbody>
 	</table>
 
