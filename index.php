@@ -1,4 +1,4 @@
 <?php
 include_once('Skinny.php');
-$Skinny->SkinnyDisplay('views/index.html', array());
+$Skinny->SkinnyDisplay('views/index.html', array('errmsg' => ''));
 ?>

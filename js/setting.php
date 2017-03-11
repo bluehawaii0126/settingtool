@@ -14,3 +14,4 @@ $Skinny->SkinnyDisplay('views/setting.html', $out);
 ?>
 
 
+

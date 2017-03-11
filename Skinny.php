@@ -115,13 +115,6 @@ $skConf['EXTERNAL_CALLBACK'] = false;        // タグの置換を永久に行�
 ini_set( 'display_errors'  , $skConf['DISP']['ERRORS']?'1':'0' );
 ini_set( 'error_reporting' , E_ALL );
 
-// 不要ならこの部分は消しても構わない
-ini_set( 'mbstring.internal_encoding', $skConf['ENCODE']['INTERNAL'] );
-ini_set( 'short_open_tag'      , 0 );
-ini_set( 'magic_quotes_gpc'    , 'off' );
-ini_set( 'mbstring.http_input' , 'pass');
-ini_set( 'mbstring.http_output', 'pass');
-
 // キャッシュ利用時にキャッシュフォルダを自動生成する
 if($skConf['CACHE']['FLG'] && (!file_exists($skConf['CACHE']['DIR']) || (file_exists($skConf['CACHE']['DIR']) && !is_dir($skConf['CACHE']['DIR'])))) {
 	@mkdir( $skConf['CACHE']['DIR'] , 0777 );

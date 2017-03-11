@@ -4,6 +4,7 @@ session_start();
 
 require_once($_SERVER['DOCUMENT_ROOT'] . '/settingtool/config.php'); 
 include_once('./Skinny.php');
+require_once('./ArmUtil.php');
 
 if (file_exists('.loginlock')) {
     $updateDate = filemtime('.loginlock');
@@ -55,6 +56,19 @@ fwrite($f, 0);
 fclose($f);
 
 $_SESSION['login_session'] = 'loginsuccess';
-$Skinny->SkinnyDisplay('setting.php', $out);
+
+// 保存されている情報があれば表示　なければ初期設定表示
+
+
+$out = array();
+$out['default_arm_server'] = $DEFAULT_ARM_SERVER;
+$out['data_arm_server'] = $DATA_ARM_SERVER;
+$out['arm_router_no'] = $ARM_ROUTER_NO;
+$out['pic_sensor_no'] = $PIC_SENSOR_NO;
+
+$defaultSchedule = ArmUtil::getDefaultSchedule();
+$out['schedules'] = $defaultSchedule;
+
+$Skinny->SkinnyDisplay('views/setting.html', $out);
 
 ?>
