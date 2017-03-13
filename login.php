@@ -3,7 +3,9 @@
 session_start();
 
 require_once($_SERVER['DOCUMENT_ROOT'] . '/settingtool/config.php'); 
-include_once('./Skinny.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/settingtool/vendor/autoload.php'); 
+$loader = new Twig_Loader_Filesystem(__DIR__ . '/templates');
+$twig = new Twig_Environment($loader, array('cache' => __DIR__ . '/twig_cache'));
 require_once('./ArmUtil.php');
 
 if (file_exists('.loginlock')) {
@@ -15,7 +17,8 @@ if (file_exists('.loginlock')) {
         $out = array();
         $out['errmsg'] = 'ログインロックされています。<br/>しばらくたってから再度お試しください';
     }
-    $Skinny->SkinnyDisplay('views/index.html', $out);
+    $template = $twig->loadTemplate('index.html');
+    echo $template->render($out);
     exit;
 }
 
@@ -47,7 +50,8 @@ if ($loginFailed) {
         fclose($f);
         $out['errmsg'] = 'idまたはpasswordに誤りがあります';
     }
-    $Skinny->SkinnyDisplay('views/index.html', $out);
+    $template = $twig->loadTemplate('index.html');
+    echo $template->render($out);
     exit;
 }
 
@@ -58,24 +62,31 @@ fclose($f);
 $_SESSION['login_session'] = 'loginsuccess';
 
 // 保存されている情報があれば表示　なければ初期設定表示
-
-
 $out = array();
-$out['default_arm_server'] = $DEFAULT_ARM_SERVER;
-$out['data_arm_server'] = $DATA_ARM_SERVER;
-$out['arm_router_no'] = $ARM_ROUTER_NO;
-$out['pic_sensor_no'] = $PIC_SENSOR_NO;
-
 $out['schedules'] = ArmUtil::getSchedules();
+$defaultSchedule = ArmUtil::getD3();
+$out = array_merge($out, $defaultSchedule);
+if (!file_exists('data.json')) {
+    $out['default_arm_server'] = $DEFAULT_ARM_SERVER;
+    $out['data_arm_server'] = $DATA_ARM_SERVER;
+    $out['arm_router_no'] = $ARM_ROUTER_NO;
+    $out['pic_sensor_no'] = $PIC_SENSOR_NO;
+} else {
+    $json = file_get_contents('data.json');
+    error_log(var_dump(json_decode($json, true)));
+    $out['default_arm_server'] = '1';
+    $out['data_arm_server'] = '1';
+    $out['arm_router_no'] = '1';
+    $out['pic_sensor_no'] = '1';
+    $out['select_months'] = '1';
+    $out['select_days'] = '1';
+    $out['select_weekdays'] = '1';
+    $out['select_hours'] = '1';
+    $out['select_minutes'] = '1';
+    $out['select_seconds'] = '1';
+}
 
-$defaultSchedule = ArmUtil::getDefaultSchedule();
-$out['select_months'] = $defaultSchedule['select_months'];
-$out['select_days'] = $defaultSchedule['select_days'];
-$out['select_weekdays'] = $defaultSchedule['select_weekdays'];
-$out['select_hours'] = $defaultSchedule['select_hours'];
-$out['select_minutes'] = $defaultSchedule['select_minutes'];
-$out['select_seconds'] = $defaultSchedule['select_seconds'];
-
-$Skinny->SkinnyDisplay('views/setting.html', $out);
+$template = $twig->loadTemplate('setting.html');
+echo $template->render($out);
 
 ?>
