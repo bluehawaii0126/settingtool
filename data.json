@@ -3,52 +3,52 @@
     "data_arm_server": "666.666.666.666",
     "arm_router_no": "arm_router_no_value",
     "pic_sensor_no": "pic_sensor_no_value",
-    "sensor_monitor_settings" : {
-      "month": "3",
-      "day": "m5",
-      "weekday": "0",
-      "hour": "m12",
-      "minutes": "29",
-      "second": "58",
+    "sensor_monitor_settings": {
+        "month": "3",
+        "day": "m5",
+        "weekday": "0",
+        "hour": "m12",
+        "minutes": "29",
+        "second": "58"
     },
-    "door_sensor_monitor_settings" : {
-      "month": "3",
-      "day": "m5",
-      "weekday": "0",
-      "hour": "m12",
-      "minutes": "29",
-      "second": "58",
+    "door_sensor_monitor_settings": {
+        "month": "3",
+        "day": "m5",
+        "weekday": "0",
+        "hour": "m12",
+        "minutes": "29",
+        "second": "58"
     },
-    "arm_monitor_settings" : {
-      "month": "3",
-      "day": "m5",
-      "weekday": "0",
-      "hour": "m12",
-      "minutes": "29",
-      "second": "58",
+    "arm_monitor_settings": {
+        "month": "3",
+        "day": "m5",
+        "weekday": "0",
+        "hour": "m12",
+        "minutes": "29",
+        "second": "58"
     },
-    "inquiry_settings" : {
-      "month": "3",
-      "day": "m5",
-      "weekday": "0",
-      "hour": "m12",
-      "minutes": "29",
-      "second": "58",
+    "inquiry_settings": {
+        "month": "3",
+        "day": "m5",
+        "weekday": "0",
+        "hour": "m12",
+        "minutes": "29",
+        "second": "58"
     },
-    "pic_sensor_reboot" : {
-      "month": "3",
-      "day": "m5",
-      "weekday": "0",
-      "hour": "m12",
-      "minutes": "29",
-      "second": "58",
+    "pic_sensor_reboot": {
+        "month": "3",
+        "day": "m5",
+        "weekday": "0",
+        "hour": "m12",
+        "minutes": "29",
+        "second": "58"
     },
-    "no_name" : {
-      "month": "3",
-      "day": "m5",
-      "weekday": "0",
-      "hour": "m12",
-      "minutes": "29",
-      "second": "58",
+    "no_name": {
+        "month": "3",
+        "day": "m5",
+        "weekday": "0",
+        "hour": "m12",
+        "minutes": "29",
+        "second": "58"
     }
 }
