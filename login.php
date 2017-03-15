@@ -2,8 +2,8 @@
 
 session_start();
 
-require_once(__DIR__ . '/config.php'); 
-require_once(__DIR__ . '/vendor/autoload.php'); 
+require_once(__DIR__ . '/config.php');
+require_once(__DIR__ . '/vendor/autoload.php');
 $loader = new Twig_Loader_Filesystem(__DIR__ . '/templates');
 $twig = new Twig_Environment($loader, array('cache' => __DIR__ . '/twig_cache'));
 require_once('./ArmUtil.php');
@@ -15,7 +15,7 @@ if (file_exists('.loginlock')) {
         unlink('.loginlock');
     } else {
         $out = array();
-        $out['errmsg'] = 'ログインロックされています。<br/>しばらくたってから再度お試しください';
+        $out['errmsg'] = $MESSAGES['login_lock'];
     }
     $template = $twig->loadTemplate('index.html');
     echo $template->render($out);
@@ -39,7 +39,7 @@ if ($loginFailed) {
     $out = array();
     if (isset($failedFile[0]) && $failedFile[0] + 1 > 2) {
         touch('.loginlock');
-        $out['errmsg'] = '3回失敗したためロックされました。<br/>しばらくたってから再度お試しください';
+        $out['errmsg'] = $MESSAGES['login_lock_now'];
         $f = fopen('.failed', 'w');
         fwrite($f, 0);
         fclose($f);
@@ -48,7 +48,7 @@ if ($loginFailed) {
         $f = fopen('.failed', 'w');
         fwrite($f, $newFailedCount);
         fclose($f);
-        $out['errmsg'] = 'idまたはpasswordに誤りがあります';
+        $out['errmsg'] = $MESSAGES['login_failed'];
     }
     $template = $twig->loadTemplate('index.html');
     echo $template->render($out);
@@ -61,7 +61,6 @@ fclose($f);
 
 $_SESSION['login_session'] = 'loginsuccess';
 
-// 保存されている情報があれば表示　なければ初期設定表示
 $saveFileUri = 'data.json';
 $out = array();
 $out['schedules'] = ArmUtil::getSchedules();
@@ -76,20 +75,7 @@ if (!file_exists($saveFileUri)) {
     $json = file_get_contents($saveFileUri, true);
     $json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
     $saveData = json_decode($json, true);
-
-error_log($saveData);
-
-
-    $out['default_arm_server'] = $saveData['default_arm_server'];
-    $out['data_arm_server'] = $saveData['data_arm_server'];
-    $out['arm_router_no'] = $saveData['arm_router_no'];
-    $out['pic_sensor_no'] = $saveData['pic_sensor_no'];
-    // $out['select_months'] = '1';
-    // $out['select_days'] = '1';
-    // $out['select_weekdays'] = '1';
-    // $out['select_hours'] = '1';
-    // $out['select_minutes'] = '1';
-    // $out['select_seconds'] = '1';
+    $out = array_merge($out, $saveData);
 }
 
 $template = $twig->loadTemplate('setting.html');
