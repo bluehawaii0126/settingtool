@@ -73,7 +73,9 @@
 				<td class="col-md-1">
 					<select name="sensor_month">
 						{% for select_month in select_months %}
+              {% if sensor_monitor_settings.month == select_month.key %}
 						    <option value="{{ select_month.key }}">{{ select_month.value }}</option>
+              {% endif %}
 						{% endfor %}
 					</select>
 				</td>
@@ -121,6 +123,3 @@
 </div>
 </body>
 </html>
-
-
-
