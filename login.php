@@ -67,10 +67,7 @@ $out['schedules'] = ArmUtil::getSchedules();
 $defaultSchedule = ArmUtil::getD3();
 $out = array_merge($out, $defaultSchedule);
 if (!file_exists($saveFileUri)) {
-    $out['default_arm_server'] = $DEFAULT_ARM_SERVER;
-    $out['data_arm_server'] = $DATA_ARM_SERVER;
-    $out['arm_router_no'] = $ARM_ROUTER_NO;
-    $out['pic_sensor_no'] = $PIC_SENSOR_NO;
+    $out = array_merge($out, $DEFAULT_SETTINGS);
 } else {
     $json = file_get_contents($saveFileUri, true);
     $json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
@@ -79,6 +76,6 @@ if (!file_exists($saveFileUri)) {
 }
 
 $template = $twig->loadTemplate('setting.html');
-echo $template->render($out);
+echo $template->render(array('data' => $out));
 
 ?>

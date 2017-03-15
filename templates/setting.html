@@ -31,7 +31,7 @@
 			<td class="col-md-3">標準ARMサーバー</td>
 			<td class="col-md-9">
 				<div class="form-group col-xs-3">
-					<input type="text" name="default_arm_server" class="form-control input-sm" value="{{ default_arm_server }}">
+					<input type="text" name="default_arm_server" class="form-control input-sm" value="{{ data.default_arm_server }}">
 				</div>
 			</td>
 		</tr>
@@ -39,7 +39,7 @@
 			<td>データARMサーバー</td>
 			<td>
 				<div class="form-group col-xs-3">
-					<input type="text" name="data_arm_server" class="form-control input-sm" value="{{ data_arm_server }}">
+					<input type="text" name="data_arm_server" class="form-control input-sm" value="{{ data.data_arm_server }}">
 				</div>
 			</td>
 		</tr>
@@ -47,7 +47,7 @@
 			<td>ARMルーター番号</td>
 			<td>
 				<div class="form-group col-xs-7">
-					<input type="text" name="arm_router_no" class="form-control input-sm" value="{{ arm_router_no }}">
+					<input type="text" name="arm_router_no" class="form-control input-sm" value="{{ data.arm_router_no }}">
 				</div>
 			</td>
 		</tr>
@@ -55,7 +55,7 @@
 			<td>画像認識センサー番号</td>
 			<td>
 				<div class="form-group col-xs-7">
-					<input type="text" name="pic_sensor_no" class="form-control input-sm" value="{{ pic_sensor_no }}">
+					<input type="text" name="pic_sensor_no" class="form-control input-sm" value="{{ data.pic_sensor_no }}">
 				</div>
 			</td>
 		</tr>
@@ -67,50 +67,48 @@
 			<tr class="info"><th colspan="7">スケジュール設定</th></tr>
 		</thead>
 		<tbody>
-		{% for schedule in schedules %}
+		{% for key, item in data.schedules %}
 			<tr>
-				<td class="col-md-3">{{ schedule.value }}</td>
+				<td class="col-md-3">{{ item }}</td>
 				<td class="col-md-1">
 					<select name="sensor_month">
-						{% for select_month in select_months %}
-              {% if sensor_monitor_settings.month == select_month.key %}
-						    <option value="{{ select_month.key }}">{{ select_month.value }}</option>
-              {% endif %}
+						{% for select_month in data.select_months %}
+					      <option value="{{ select_month.key }}" {% if data[key].month == select_month.key %} selected {% endif %}>{{ select_month.value }}</option>
 						{% endfor %}
 					</select>
 				</td>
 				<td class="col-md-1">
 					<select class="selectpicker">
-						{% for select_day in select_days %}
-						    <option value="{{ select_day.key }}">{{ select_day.value }}</option>
+						{% for select_day in data.select_days %}
+						    <option value="{{ select_day.key }}" {% if data[key].day == select_day.key %} selected {% endif %}>{{ select_day.value }}</option>
 						{% endfor %}
 					</select>
 				</td>
 				<td class="col-md-1">
 					<select class="selectpicker">
-						{% for select_weekday in select_weekdays %}
-						    <option value="{{ select_weekday.key }}">{{ select_weekday.value }}</option>
+						{% for select_weekday in data.select_weekdays %}
+						    <option value="{{ select_weekday.key }}" {% if data[key].weekday == select_weekday.key %} selected {% endif %}>{{ select_weekday.value }}</option>
 						{% endfor %}
 					</select>
 				</td>
 				<td class="col-md-1">
 					<select class="selectpicker">
-						{% for select_hour in select_hours %}
-						    <option value="{{ select_hour.key }}">{{ select_hour.value }}</option>
+						{% for select_hour in data.select_hours %}
+						    <option value="{{ select_hour.key }}" {% if data[key].hour == select_hour.key %} selected {% endif %}>{{ select_hour.value }}</option>
 						{% endfor %}
 					</select>
 				</td>
 				<td class="col-md-1">
 					<select class="selectpicker">
-						{% for select_minute in select_minutes %}
-						    <option value="{{ select_minute.key }}">{{ select_minute.value }}</option>
+						{% for select_minute in data.select_minutes %}
+						    <option value="{{ select_minute.key }}" {% if data[key].minute == select_minute.key %} selected {% endif %}>{{ select_minute.value }}</option>
 						{% endfor %}
 					</select>
 				</td>
 				<td class="col-md-1">
 					<select class="selectpicker">
-						{% for select_second in select_seconds %}
-						    <option value="{{ select_second.key }}">{{ select_second.value }}</option>
+						{% for select_second in data.select_seconds %}
+						    <option value="{{ select_second.key }}"{% if data[key].second == select_second.key %} selected {% endif %}>{{ select_second.value }}</option>
 						{% endfor %}
 				</select>
 				</td>

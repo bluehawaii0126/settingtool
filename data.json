@@ -12,23 +12,23 @@
         "second": "58"
     },
     "door_sensor_monitor_settings": {
-        "month": "3",
-        "day": "m5",
+        "month": "4",
+        "day": "m10",
         "weekday": "0",
         "hour": "m12",
         "minutes": "29",
         "second": "58"
     },
     "arm_monitor_settings": {
-        "month": "3",
-        "day": "m5",
+        "month": "1",
+        "day": "31",
         "weekday": "0",
         "hour": "m12",
         "minutes": "29",
         "second": "58"
     },
     "inquiry_settings": {
-        "month": "3",
+        "month": "2",
         "day": "m5",
         "weekday": "0",
         "hour": "m12",
@@ -36,16 +36,16 @@
         "second": "58"
     },
     "pic_sensor_reboot": {
-        "month": "3",
-        "day": "m5",
+        "month": "5",
+        "day": "12",
         "weekday": "0",
         "hour": "m12",
         "minutes": "29",
         "second": "58"
     },
     "no_name": {
-        "month": "3",
-        "day": "m5",
+        "month": "12",
+        "day": "15",
         "weekday": "0",
         "hour": "m12",
         "minutes": "29",

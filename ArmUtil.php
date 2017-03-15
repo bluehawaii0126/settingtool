@@ -3,16 +3,12 @@ class ArmUtil {
 
 	public static function getSchedules() {
 		$results = array();
-		$values = array('センサー死活監視インターバル', 
-			         'ドアセンサー死活監視インターバル', 
-			         '死活監視（ARMサーバー間）', 
-			         '設定変更問合せ', 
-			         '画像認識センサー再起動', 
-			         '　');
-		foreach ($values as $value) {
-			$results[] = array("value" => $value);
-		}
-		return $results;
+		return array('sensor_monitor_settings' => 'センサー死活監視インターバル',
+										'door_sensor_monitor_settings' => 'ドアセンサー死活監視インターバル',
+										'arm_monitor_settings' => '死活監視（ARMサーバー間）',
+										'inquiry_settings' => '設定変更問合せ',
+										'pic_sensor_reboot' => '画像認識センサー再起動',
+										'no_name' => '　');
 	}
 
 	public static function getD3() {
@@ -81,6 +77,3 @@ class ArmUtil {
 	}
 }
 ?>
-
-
-
