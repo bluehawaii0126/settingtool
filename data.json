@@ -1,7 +1,7 @@
 {
-    "default_arm_server": "555.555.555.555",
-    "data_arm_server": "666.666.666.666",
-    "arm_router_no": "arm_router_no_value",
+    "default_arm_server": "61.196.23.56",
+    "data_arm_server": "61.196.23.56",
+    "arm_router_no": "911000xxx",
     "pic_sensor_no": "pic_sensor_no_value",
     "sensor_monitor_settings": {
         "month": "3",
