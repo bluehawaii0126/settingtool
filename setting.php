@@ -15,6 +15,7 @@ if (empty($_SESSION['login_session'])) {
 	exit;
 }
 
-
+$params = $_POST;
+print_r($params);
 
 ?>
