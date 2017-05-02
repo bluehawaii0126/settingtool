@@ -16,5 +16,29 @@ class SaveFile {
     }
     return $out;
   }
+
+  function registData($params) {
+      $saveDatas = array();
+      $wkSaveDatas = array();
+      $searchKeyKinds = array("month", "day", "weekday", "hour", "minute", "second");
+      $searchKeyBases = array_keys(ArmUtil::getSchedules());
+      foreach ($searchKeyBases as $searchKeyBase) {
+          foreach ($searchKeyKinds as $kinds) {
+            $searchKey = $searchKeyBase . "-" . $kinds;
+            $wkSaveDatas[$searchKeyBase][$kinds] = $params[$searchKey];
+            unset($params[$searchKey]);
+          }
+      }
+      $saveDatas = array_merge($params, $wkSaveDatas);
+
+      print(json_encode($saveDatas));
+
+
+
+
+    // $f = fopen('data2.json', 'w');
+    // fwrite($f, $param);
+    // fclose($f);
+  }
 }
 ?>

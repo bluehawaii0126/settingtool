@@ -78,42 +78,42 @@ $(function(){
 			<tr>
 				<td class="col-md-3">{{ item }}</td>
 				<td class="col-md-1">
-					<select name="month_{{ key }}">
+					<select name="{{ key }}-month">
 						{% for select_month in data.select_months %}
 					      <option value="{{ select_month.key }}" {% if data[key].month == select_month.key %} selected {% endif %}>{{ select_month.value }}</option>
 						{% endfor %}
 					</select>
 				</td>
 				<td class="col-md-1">
-					<select name="day_{{ key }}">
+					<select name="{{ key }}-day">
 						{% for select_day in data.select_days %}
 						    <option value="{{ select_day.key }}" {% if data[key].day == select_day.key %} selected {% endif %}>{{ select_day.value }}</option>
 						{% endfor %}
 					</select>
 				</td>
 				<td class="col-md-1">
-					<select name="weekday_{{ key }}">
+					<select name="{{ key }}-weekday">
 						{% for select_weekday in data.select_weekdays %}
 						    <option value="{{ select_weekday.key }}" {% if data[key].weekday == select_weekday.key %} selected {% endif %}>{{ select_weekday.value }}</option>
 						{% endfor %}
 					</select>
 				</td>
 				<td class="col-md-1">
-					<select name="hour_{{ key }}">
+					<select name="{{ key }}-hour">
 						{% for select_hour in data.select_hours %}
 						    <option value="{{ select_hour.key }}" {% if data[key].hour == select_hour.key %} selected {% endif %}>{{ select_hour.value }}</option>
 						{% endfor %}
 					</select>
 				</td>
 				<td class="col-md-1">
-					<select name="minute_{{ key }}">
+					<select name="{{ key }}-minute">
 						{% for select_minute in data.select_minutes %}
 						    <option value="{{ select_minute.key }}" {% if data[key].minute == select_minute.key %} selected {% endif %}>{{ select_minute.value }}</option>
 						{% endfor %}
 					</select>
 				</td>
 				<td class="col-md-1">
-					<select name="second_{{ key }}">
+					<select name="{{ key }}-second">
 						{% for select_second in data.select_seconds %}
 						    <option value="{{ select_second.key }}"{% if data[key].second == select_second.key %} selected {% endif %}>{{ select_second.value }}</option>
 						{% endfor %}

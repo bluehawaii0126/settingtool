@@ -16,6 +16,7 @@ if (empty($_SESSION['login_session'])) {
 }
 
 $params = $_POST;
-print_r($params);
+$savefile = new SaveFile();
+$savefile->registData($params);
 
 ?>
