@@ -1,5 +1,8 @@
 <?php
-class SaveFile {
+require_once(__DIR__ . '/config.php');
+
+class PictureSensor {
+
   function getSaveFileData() {
     $saveFileUri = 'data.json';
     $out = array();
@@ -30,15 +33,18 @@ class SaveFile {
           }
       }
       $saveDatas = array_merge($params, $wkSaveDatas);
+      $f = fopen('data.json', 'w');
+      fwrite($f, json_encode($saveDatas));
+      fclose($f);
+  }
 
-      print(json_encode($saveDatas));
-
-
-
-
-    // $f = fopen('data2.json', 'w');
-    // fwrite($f, $param);
-    // fclose($f);
+  function initializeData() {
+    echo 'test';
+    $out = array();
+    $out['schedules'] = ArmUtil::getSchedules();
+    $defaultSchedule = ArmUtil::getD3();
+    $out = array_merge($out, $DEFAULT_SETTINGS);
+    return $out;
   }
 }
 ?>
