@@ -9,52 +9,17 @@
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript">
 $(function(){
-    $('#registform').submit(function(event) {
-        event.preventDefault();
-        var $form = $(this);
-        var $registButton = $('#regist');
-        $.ajax({
-            url: $form.attr('action'),
-            type: $form.attr('method'),
-            data: $form.serialize(),
-            timeout: 10000,
-            beforeSend: function(xhr, settings) {
-                $registButton.attr('disabled', true);
-            },
-            complete: function(xhr, textStatus) {
-                $registButton.attr('disabled', false);
-            },
-            success: function(result, textStatus, xhr) {
-                alert('登録しました。');
-            },
-            error: function(xhr, textStatus, error) {
-                alert('登録が失敗しました。再度お試し下さい。');
-            }
-        });
-    });
+    $('#regist').click(function() {
+        if (confirm('登録しますか？')) {
+            $('#action_no').val(1);
+            $('#registform').submit();
+        }
+    })
 
     $('#initialize').click(function() {
         if (confirm('初期設定に戻しますか？')) {
-          var $form = $(this);
-          var $initButton = $('#initialize');
-          $.ajax({
-              url: 'setting.php',
-              type: 'POST',
-              data: {'action_no': 2},
-              timeout: 10000,
-              beforeSend: function(xhr, settings) {
-                  $initButton.attr('disabled', true);
-              },
-              complete: function(xhr, textStatus) {
-                  $initButton.attr('disabled', false);
-              },
-              success: function(result, textStatus, xhr) {
-                  alert('登録内容を初期化しました');
-              },
-              error: function(xhr, textStatus, error) {
-                  alert('登録内容初期化に失敗しました。再度お試し下さい。');
-              }
-          });
+            $('#action_no').val(2);
+            $('#registform').submit();
         }
     })
 
@@ -69,14 +34,15 @@ $(function(){
 <body>
 <div class="container">
 	<h3>画像認識センサー環境設定</h3>
-	<form id="registform" action="setting.php" method="post" id="settingform">
+	<form id="registform" action="setting.php" method="post">
+  <input type="hidden" id="action_no" name="action_no"/>
 	<div>
 	<span>
 		<button type="button" class="btn btn-success" id="clear">表示クリア</button>
 		<button type="button" class="btn btn-success" id="initialize">登録内容初期化</button>
 	</span>
 	<span class="pull-right">
-		<button type="submit" class="btn btn-success" id="regist">登録</button>
+		<button type="button" class="btn btn-success" id="regist">登録</button>
 	</span>
     </div>
 	<br/>

@@ -8,6 +8,9 @@ $loader = new Twig_Loader_Filesystem(__DIR__ . '/templates');
 $twig = new Twig_Environment($loader, array('cache' => __DIR__ . '/twig_cache'));
 require_once('./ArmUtil.php');
 
+error_log('kiteruyo');
+
+
 if (empty($_SESSION['login_session'])) {
 	$out['errmsg'] = $MESSAGES['no_login'];
   $template = $twig->loadTemplate('index.html');
@@ -15,19 +18,24 @@ if (empty($_SESSION['login_session'])) {
 	exit;
 }
 
+$out = array();
 switch ($_POST['action_no']) {
-	  case 2:
-				$out = array();
-		    $out['schedules'] = ArmUtil::getSchedules();
-		    $defaultSchedule = ArmUtil::getD3();
-		    $out = array_merge($out, $DEFAULT_SETTINGS);
-				$template = $twig->loadTemplate('setting.html');
-		    echo $template->render(array('data' => $out));
-				exit;
-		default:
+	  case 1:
+				error_log('action1');
 				$params = $_POST;
 				$pictureSensor = new PictureSensor();
 				$pictureSensor->registData($params);
 				break;
+	  case 2:
+		    error_log('action2');
+        $out['schedules'] = ArmUtil::getSchedules();
+        $defaultSchedule = ArmUtil::getD3();
+        $out = array_merge($out, $defaultSchedule);
+        $out = array_merge($out, $DEFAULT_SETTINGS);
+				$template = $twig->loadTemplate('setting.html');
+				echo $template->render(array('data' => $out));
+				break;
+		default:
+		    error_log('error');
 }
 ?>
